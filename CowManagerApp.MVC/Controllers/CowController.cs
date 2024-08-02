@@ -1,9 +1,7 @@
 ﻿using CowManagerApp.MVC.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
-using System;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CowManager.Controllers
@@ -158,6 +156,89 @@ namespace CowManager.Controllers
         {
             return _context.Cows.Any(e => e.Id == id);
         }
-        
+        public async Task<IActionResult> Diag(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var cow = await _context.Cows
+                .Include(c => c.IdherdNavigation)
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (cow == null)
+            {
+                return NotFound();
+            }
+
+            var diagnoses = await _context.Diagnoses
+                .Where(d => d.Idcow == id)
+                .Include(d => d.IddiseaseNavigation)
+                .ToListAsync();
+
+            var viewModel = new CowDiag
+            {
+                Cow = cow,
+                Diagnoses = diagnoses
+            };
+
+            return View(viewModel);
+        }
+        public async Task<IActionResult> DiagAdd(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var cow = await _context.Cows.FindAsync(id);
+            if (cow == null)
+            {
+                return NotFound();
+            }
+
+            var diseases = await _context.Diseases.ToListAsync();
+            var viewModel = new CowDiagAdd
+            {
+                CowId = cow.Id,
+                CowName = cow.Name,
+                Diseases = diseases
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DiagAdd(CowDiagAdd model)
+        {
+            if (ModelState.IsValid)
+            {
+                var diagnosis = new Diagnosis
+                {
+                    Idcow = model.CowId,
+                    Iddisease = model.SelectedDiseaseId,
+                    NameOfDisease = _context.Diseases.FirstOrDefault(d => d.Id == model.SelectedDiseaseId)?.Name,
+                    Comment = model.Comment
+                };
+
+                try
+                {
+                    _context.Add(diagnosis);
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToAction("Diag", "Cow", new { id = model.CowId });
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", "Wystąpił błąd podczas dodawania diagnozy.");
+                }
+            }
+
+            model.Diseases = await _context.Diseases.ToListAsync();
+            return View(model);
+        }
+
     }
 }

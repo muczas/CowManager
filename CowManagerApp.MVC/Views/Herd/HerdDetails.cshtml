@@ -42,9 +42,10 @@
                 </td>
 
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Diag" asp-controller="Cow" asp-route-id="@item.Id">Diagnosis</a> |
+                    <a asp-action="Edit" asp-controller="Cow" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-controller="Cow" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-controller="Cow"  asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
 
