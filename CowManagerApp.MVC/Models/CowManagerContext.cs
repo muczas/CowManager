@@ -123,6 +123,7 @@ public partial class CowManagerContext : DbContext
                 .IsFixedLength();
             entity.Property(e => e.Idcow).HasColumnName("IDCow");
             entity.Property(e => e.Idmedicine).HasColumnName("IDMedicine");
+            entity.Property(e => e.Iddiagnosis).HasColumnName("IDDiagnosis");
             entity.Property(e => e.NameOfMedicine)
                 .HasMaxLength(50)
                 .IsFixedLength();
@@ -136,6 +137,11 @@ public partial class CowManagerContext : DbContext
                 .HasForeignKey(d => d.Idmedicine)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Treatment_Medicine");
+
+            entity.HasOne(d => d.IddiagnosisNavigation).WithMany()
+                .HasForeignKey(d => d.Iddiagnosis)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Treatment_Diagnosis");
         }); 
 
         OnModelCreatingPartial(modelBuilder);
