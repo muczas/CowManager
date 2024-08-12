@@ -1,0 +1,17 @@
+﻿@model CowManagerApp.MVC.Models.Diagnosis
+
+<h2>Remove Diagnosis</h2>
+
+
+<h4>Are you sure you want to remove this diagnosis?</h4>
+
+<div>
+    <h5>Disease: @Model.NameOfDisease</h5>
+    <h5>Comment: @Model.Comment</h5>
+</div>
+
+<form asp-action="Remove">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" value="Remove" class="btn btn-danger">Remove</button>
+</form>
+

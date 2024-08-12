@@ -16,6 +16,9 @@
                 Disease: @diagnosis.NameOfDisease
                 <br />
                 Comment: @diagnosis.Comment
+                <br />
+                <a asp-action="DiagRemove" asp-route-id="@diagnosis.Id">Delete</a>
+                <a asp-action="DiagEdit" asp-route-id="@diagnosis.Id">Edit</a>
             </li>
         }
     </ul>

@@ -46,12 +46,36 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ293XERpYWdBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/CowAp/CowManager/CowManagerApp.MVC/Views/Cow/DiagEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ293XERpYWdFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CowAp/CowManager/CowManagerApp.MVC/Views/Cow/DiagRemove.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ293XERpYWdSZW1vdmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/CowAp/CowManager/CowManagerApp.MVC/Views/Cow/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ293XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/CowAp/CowManager/CowManagerApp.MVC/Views/Cow/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ293XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CowAp/CowManager/CowManagerApp.MVC/Views/Cow/Treat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ293XFRyZWF0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CowAp/CowManager/CowManagerApp.MVC/Views/Cow/TreatAdd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ293XFRyZWF0QWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CowAp/CowManager/CowManagerApp.MVC/Views/Cow/TreatEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ293XFRyZWF0RWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CowAp/CowManager/CowManagerApp.MVC/Views/Cow/TreatRemove.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ293XFRyZWF0UmVtb3ZlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/CowAp/CowManager/CowManagerApp.MVC/Views/Disease/DiseaseDetails.cshtml]
