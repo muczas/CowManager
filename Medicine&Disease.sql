@@ -7,7 +7,7 @@
 ('Bruceloza', 'Zakaźna choroba bakteryjna wywoływana przez Brucella abortus, prowadząca do poronień, zmniejszonej płodności i spadku produkcji mleka.'),
 ('Ketoza', 'Metaboliczna choroba wynikająca z zaburzeń równowagi energetycznej, objawiająca się zmniejszeniem apetytu, spadkiem masy ciała i zmniejszeniem produkcji mleka.'),
 ('Lipoproteinoza (choroba tłuszczowa wątroby)', 'Choroba metaboliczna spowodowana nadmiernym nagromadzeniem tłuszczu w wątrobie, prowadząca do spadku apetytu, produkcji mleka i ogólnego osłabienia.'),
-('Przewlekła postępująca encefalopatia bydła (BSE, choroba szalonych krów)', 'Choroba neurodegeneracyjna wywoływana przez priony, prowadząca do zaburzeń ruchowych, zmian behawioralnych i śmierci.'),
+('Przewlekła postępująca encefalopatia', 'Choroba neurodegeneracyjna wywoływana przez priony, prowadząca do zaburzeń ruchowych, zmian behawioralnych i śmierci.'),
 ('Wąglik', 'Ostra, zakaźna choroba wywoływana przez Bacillus anthracis, charakteryzująca się nagłą śmiercią, obrzękiem i krwawieniem.');
 INSERT INTO Medicine (Name, Comment) VALUES
 ('Oxytetracyklina', 'Antybiotyk stosowany w leczeniu infekcji bakteryjnych, takich jak zapalenie płuc i mastitis.'),

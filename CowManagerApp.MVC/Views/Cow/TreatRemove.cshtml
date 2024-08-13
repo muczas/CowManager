@@ -1,5 +1,16 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model CowManagerApp.MVC.Models.Treatment
+<h2>Remove</h2>
+
+
+<h4>Are you sure you want to remove this?</h4>
+
+<div>
+    <h5>Disease: @Model.NameOfMedicine</h5>
+    <h5>Comment: @Model.Comment</h5>
+</div>
+
+<form asp-action="Remove">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" value="Remove" class="btn btn-danger">Remove</button>
+</form>
+

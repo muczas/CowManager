@@ -1,7 +1,6 @@
 ﻿using CowManagerApp.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CowManager.Controllers
@@ -375,7 +374,7 @@ namespace CowManager.Controllers
             {
                 Idcow = model.CowId,
                 Idmedicine = model.SelectedMedicinetId,
-                NameOfMedicine = _context.Diseases.FirstOrDefault(d => d.Id == model.SelectedMedicinetId)?.Name,
+                NameOfMedicine = _context.Medicines.FirstOrDefault(d => d.Id == model.SelectedMedicinetId)?.Name,
                 Comment = model.Comment
             };
 

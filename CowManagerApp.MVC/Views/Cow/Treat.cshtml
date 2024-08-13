@@ -13,12 +13,12 @@
         @foreach (var treats in Model.Treatments)
         {
             <li>
-                Disease: @treats.NameOfDisease
+                Disease: @treats.NameOfMedicine
                 <br />
                 Comment: @treats.Comment
                 <br />
-                <a asp-action="TreatRemove" asp-route-id="@diagnosis.Id">Delete</a>
-                <a asp-action="TreatEdit" asp-route-id="@diagnosis.Id">Edit</a>
+                <a asp-action="TreatRemove" asp-route-id="@treats.Id">Delete</a>
+                <a asp-action="TreatEdit" asp-route-id="@treats.Id">Edit</a>
             </li>
         }
     </ul>

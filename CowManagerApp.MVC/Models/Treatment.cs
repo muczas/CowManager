@@ -15,7 +15,7 @@ public partial class Treatment
     
     public string NameOfMedicine { get; set; } = null!;
 
-    public int Iddiagnosis { get; set; }
+    public int? Iddiagnosis { get; set; }
 
     public string? Comment { get; set; }
 
@@ -25,3 +25,4 @@ public partial class Treatment
 
     public virtual Diagnosis IddiagnosisNavigation { get; set; } = null!;
 }
+

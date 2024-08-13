@@ -4,7 +4,7 @@ using System;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<CowManagerContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ApiContext")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllersWithViews();
 

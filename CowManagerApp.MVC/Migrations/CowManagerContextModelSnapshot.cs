@@ -176,6 +176,10 @@ namespace CowManagerApp.MVC.Migrations
                         .HasColumnType("int")
                         .HasColumnName("IDCow");
 
+                    b.Property<int?>("Iddiagnosis")
+                        .HasColumnType("int")
+                        .HasColumnName("IDDiagnosis");
+
                     b.Property<int>("Idmedicine")
                         .HasColumnType("int")
                         .HasColumnName("IDMedicine");
@@ -189,6 +193,8 @@ namespace CowManagerApp.MVC.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("Idcow");
+
+                    b.HasIndex("Iddiagnosis");
 
                     b.HasIndex("Idmedicine");
 
@@ -232,6 +238,12 @@ namespace CowManagerApp.MVC.Migrations
                         .IsRequired()
                         .HasConstraintName("FK_Treatment_Cow");
 
+                    b.HasOne("CowManagerApp.MVC.Models.Diagnosis", "IddiagnosisNavigation")
+                        .WithMany()
+                        .HasForeignKey("Iddiagnosis")
+                        .IsRequired()
+                        .HasConstraintName("FK_Treatment_Diagnosis");
+
                     b.HasOne("CowManagerApp.MVC.Models.Medicine", "IdmedicineNavigation")
                         .WithMany()
                         .HasForeignKey("Idmedicine")
@@ -239,6 +251,8 @@ namespace CowManagerApp.MVC.Migrations
                         .HasConstraintName("FK_Treatment_Medicine");
 
                     b.Navigation("IdcowNavigation");
+
+                    b.Navigation("IddiagnosisNavigation");
 
                     b.Navigation("IdmedicineNavigation");
                 });

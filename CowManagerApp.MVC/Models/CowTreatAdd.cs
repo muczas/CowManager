@@ -9,7 +9,7 @@ namespace CowManagerApp.MVC.Models
         public int CowId { get; set; }
         public string CowName { get; set; }
 
-        public int DiagId { get; set; }
+        public int? DiagId { get; set; }
 
         [Required]
         public int SelectedMedicinetId { get; set; }
