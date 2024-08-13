@@ -17,6 +17,8 @@
                 <br />
                 Comment: @diagnosis.Comment
                 <br />
+                <a asp-action="TreatForDiag" asp-controller="Cow" asp-route-idd="@diagnosis.Id" asp-route-idk="@Model.Cow.Id" >Treatment</a>
+                <a asp-action="DiseaseDetails" asp-controller="Disease" asp-route-id="@diagnosis.Iddisease">Details</a>
                 <a asp-action="DiagRemove" asp-route-id="@diagnosis.Id">Delete</a>
                 <a asp-action="DiagEdit" asp-route-id="@diagnosis.Id">Edit</a>
             </li>

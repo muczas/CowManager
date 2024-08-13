@@ -466,6 +466,99 @@ namespace CowManager.Controllers
             }
 
         }
+        public async Task<IActionResult> TreatForDiag(int idd, int idk)
+        {
+            if (idd == null)
+            {
+                return NotFound();
+            }
+            if (idk == null)
+            {
+                return NotFound();
+            }
+
+            var cow = await _context.Cows
+                .Include(c => c.IdherdNavigation)
+                .FirstOrDefaultAsync(m => m.Id == idk);
+
+            if (cow == null)
+            {
+                return NotFound();
+            }
+
+            var treats = await _context.Treatments
+                .Where(d => d.Idcow == idk)
+                .Where(d => d.Iddiagnosis == idd)
+                .Include(d => d.IdmedicineNavigation)
+                .ToListAsync();
+
+            var viewModel = new CowTreat
+            {
+                Cow = cow,
+                Treatments = treats
+            };
+            
+            return View(viewModel);
+        }
+        public async Task<IActionResult> TreatForDiagAdd(int idd, int idk)
+        {
+            if (idd == null)
+            {
+                return NotFound();
+            }
+            if (idk == null)
+            {
+                return NotFound();
+            }
+
+            var cow = await _context.Cows.FindAsync(idk);
+            if (cow == null)
+            {
+                return NotFound();
+            }
+
+            var diag = await _context.Diagnoses.FindAsync(idd);
+            if (diag == null)
+            {
+                return NotFound();
+            }
+
+            var meds = await _context.Medicines.ToListAsync();
+            var viewModel = new CowTreatAdd
+            {
+                CowId = cow.Id,
+                CowName = cow.Name,
+                DiagId = diag.Id,
+                Medicines = meds
+            };
+
+            return View(viewModel);
+
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> TreatForDiagAdd(CowTreatAdd cta)
+        {
+
+
+            var treats = new Treatment
+            {
+                Idcow = cta.CowId,
+                Idmedicine = cta.SelectedMedicinetId,
+                Iddiagnosis = cta.DiagId,
+                NameOfMedicine = _context.Medicines.FirstOrDefault(d => d.Id == cta.SelectedMedicinetId)?.Name,
+                Comment = cta.Comment
+            };
+
+
+
+            _context.Add(treats);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("TreatForDiag", "Cow", new { idd = cta.DiagId, idk = cta.CowId });
+        }
+
 
     }
 }

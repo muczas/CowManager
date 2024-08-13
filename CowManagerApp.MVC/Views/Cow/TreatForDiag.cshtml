@@ -2,18 +2,17 @@
 
 <h2>@Model.Cow.Name</h2>
 <p>Comments: @Model.Cow.Comment</p>
+<h2>@Model.Treatments[0].Iddiagnosis</h2>
 
 <h3>Treatment</h3>
-<div>
-    @Html.ActionLink("Add Treatment", "TreatAdd", "Cow", new { id = Model.Cow.Id }, new { @class = "btn btn-primary" })
-</div>
+<a asp-action="TreatForDiagAdd" asp-controller="Cow" asp-route-idd="@Model.Treatments[0].Iddiagnosis" asp-route-idk="@Model.Cow.Id">Add treatment</a>
 @if (Model.Treatments.Any())
 {
     <ul>
         @foreach (var treats in Model.Treatments)
         {
             <li>
-                Disease: @treats.NameOfMedicine
+                Medicine: @treats.NameOfMedicine
                 <br />
                 Comment: @treats.Comment
                 <br />
